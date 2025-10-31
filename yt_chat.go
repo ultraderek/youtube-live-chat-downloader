@@ -294,7 +294,7 @@ func ParseInitialData(videoUrl string) (string, YtCfg, error) {
 	var _initialData InitialData
 	json.Unmarshal([]byte(initialData), &_initialData)
 
-	subMenuItems := _initialData.Contents.TwoColumnWatchNextResults.ConversationBar.LiveChatRenderer.Header.LiveChatHeaderRenderer.ViewSelector.SortFilterSubMenuRenderer.SubMenuItems
+	subMenuItems := _initialData.Contents.TwoColumnWatchNextResults.ConversationBar.LiveChatRenderer.Continuations.ReloadContinuationData.Continuation.SubMenuItems
 	if len(subMenuItems) == 0 {
 		return "", YtCfg{}, ErrStreamNotLive
 	}
