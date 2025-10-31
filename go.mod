@@ -1,3 +1,3 @@
-module github.com/abhinavxd/youtube-live-chat-downloader/v2
+module github.com/ultraderek/youtube-live-chat-downloader
 
-go 1.16
+go 1.24.0

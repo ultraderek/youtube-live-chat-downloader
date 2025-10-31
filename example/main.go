@@ -3,14 +3,12 @@ package main
 import (
 	"fmt"
 	"log"
-	"math/rand"
-	"net/http"
 
-	YtChat "github.com/abhinavxd/youtube-live-chat-downloader/v2"
+	YtChat "github.com/ultraderek/youtube-live-chat-downloader"
 )
 
 func main() {
-	customCookies := []*http.Cookie{
+	/*customCookies := []*http.Cookie{
 		{Name: "PREF",
 			Value:  "tz=Europe.Rome",
 			MaxAge: 300},
@@ -23,8 +21,8 @@ func main() {
 	// You can add those cookies here.
 	// Adding cookies is OPTIONAL
 	YtChat.AddCookies(customCookies)
-
-	continuation, cfg, error := YtChat.ParseInitialData("https://www.youtube.com/watch?v=5qap5aO4i9A")
+	*/
+	continuation, cfg, error := YtChat.ParseInitialData("https://www.youtube.com/watch?v=G2fhBSBoSso")
 	if error != nil {
 		log.Fatal(error)
 	}
