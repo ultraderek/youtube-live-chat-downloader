@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"strings"
 
 	YtChat "github.com/ultraderek/youtube-live-chat-downloader"
 )
@@ -22,17 +23,20 @@ func main() {
 	// Adding cookies is OPTIONAL
 	YtChat.AddCookies(customCookies)
 	*/
-	continuation, cfg, error := YtChat.ParseInitialData("https://www.youtube.com/watch?v=G2fhBSBoSso")
-	if error != nil {
-		log.Fatal(error)
+	continuation, cfg, err := YtChat.ParseInitialData("https://www.youtube.com/watch?v=bOPCzAvBkQg")
+	if err != nil {
+		log.Fatal(err)
 	}
 	for {
-		chat, newContinuation, error := YtChat.FetchContinuationChat(continuation, cfg)
-		if error == YtChat.ErrLiveStreamOver {
+		chat, newContinuation, err := YtChat.FetchContinuationChat(continuation, cfg)
+		if err == YtChat.ErrLiveStreamOver {
 			log.Fatal("Live stream over")
 		}
-		if error != nil {
-			log.Print(error)
+		if err != nil {
+			log.Print(err)
+			if strings.Contains(err.Error(), "400") {
+				return
+			}
 			continue
 		}
 		// set the newly received continuation

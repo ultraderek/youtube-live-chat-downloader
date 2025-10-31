@@ -14,7 +14,8 @@ import (
 )
 
 type SubMenuItems struct {
-	Title        string
+	Title string
+
 	Continuation struct {
 		ReloadContinuationData struct {
 			Continuation string
@@ -117,12 +118,10 @@ type InitialData struct {
 		TwoColumnWatchNextResults struct {
 			ConversationBar struct {
 				LiveChatRenderer struct {
-					Header struct {
-						LiveChatHeaderRenderer struct {
-							ViewSelector struct {
-								SortFilterSubMenuRenderer struct {
-									SubMenuItems []SubMenuItems `json:"subMenuItems"`
-								}
+					Continuations struct {
+						ReloadContinuationData struct {
+							Continuation struct {
+								SubMenuItems []SubMenuItems `json:"subMenuItems"`
 							}
 						}
 					}
